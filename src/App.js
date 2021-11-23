@@ -53,6 +53,7 @@ function App() {
           max={2000000}
           setValue={setPrice}
           value={price}
+          step={1}
         />
         <Widget
           title="Down Payment"
@@ -62,6 +63,7 @@ function App() {
           max={40}
           value={downPayment}
           setValue={setDownPayment}
+          step={1}
         />
         <Widget
           title="Interest Rate"
@@ -71,6 +73,7 @@ function App() {
           max={10}
           value={interestRate}
           setValue={setInterestRate}
+          step={0.25}
         />
         <ExtraCosts
           title="Homeowner's Insurance"

@@ -29,6 +29,7 @@ const Widget = (props) => {
         onChange={updatePrice}
         min={props.min}
         max={props.max}
+        step={props.step}
         // min={inputPrice - 50000}
         // max={inputPrice + 50000}
       />
