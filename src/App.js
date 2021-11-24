@@ -1,8 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import Widget from "./widget";
 import "./index.css";
-import { PieChart } from "react-minimal-pie-chart";
-import { parse } from "postcss";
 import ExtraCosts from "./extraCosts";
 import Chart from "./Chart";
 
@@ -29,7 +27,7 @@ function App() {
   return (
     <div>
       <div>
-        <p>
+        <p className="pt-2 px-10">
           {" "}
           Your monthly payment is:&ensp;
           {Number.isNaN(monthlyPayment)
