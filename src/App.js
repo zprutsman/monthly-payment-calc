@@ -4,6 +4,7 @@ import "./index.css";
 import ExtraCosts from "./extraCosts";
 import Chart from "./Chart";
 import DownPayment from "./downpayment";
+import ListingPrice from "./listingprice";
 
 const toNum = (n) => {
   if (n === "") {
@@ -44,14 +45,15 @@ function App() {
         )}
       </div>
       <div className="flex p-6">
-        <Widget
+        <ListingPrice
           title="Listing Price"
           placeholder="Enter Listing Price"
           min={50000}
-          max={2000000}
+          max={5000000}
           setValue={setPrice}
           value={price}
           step={1}
+          setTaxValue={setPropertyTax}
         />
         <DownPayment
           title="Down Payment"
