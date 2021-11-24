@@ -3,6 +3,7 @@ import Widget from "./widget";
 import "./index.css";
 import ExtraCosts from "./extraCosts";
 import Chart from "./Chart";
+import DownPayment from "./downpayment";
 
 const toNum = (n) => {
   if (n === "") {
@@ -16,7 +17,6 @@ function App() {
   const [price, setPrice] = useState("100000");
   const [propertyTax, setPropertyTax] = useState("1000");
   const [insurance, setInsurance] = useState("1500");
-
   const r = toNum(interestRate) / 100 / 12;
   const n = 12 * 30;
   const principal = toNum(price) * (1 - toNum(downPayment) / 100);
@@ -53,7 +53,7 @@ function App() {
           value={price}
           step={1}
         />
-        <Widget
+        <DownPayment
           title="Down Payment"
           type="number"
           placeholder="Down Payment Percent"
@@ -62,6 +62,8 @@ function App() {
           value={downPayment}
           setValue={setDownPayment}
           step={1}
+          downPayment={downPayment}
+          price={price}
         />
         <Widget
           title="Interest Rate"

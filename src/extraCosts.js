@@ -1,4 +1,3 @@
-import { useEffect, useRef, useState } from "react";
 const ExtraCosts = (props) => {
   const updateExtraCosts = (e) => {
     props.setValue(e.target.value);
