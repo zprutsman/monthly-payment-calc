@@ -15,16 +15,27 @@ const toNum = (n) => {
 function App() {
   const [downPayment, setDownPayment] = useState("10");
   const [interestRate, setInterestRate] = useState("5");
-  const [price, setPrice] = useState("100000");
-  const [propertyTax, setPropertyTax] = useState("1000");
-  const [insurance, setInsurance] = useState("1500");
+  const [price, setPrice] = useState("300000");
+  const [propertyTax, setPropertyTax] = useState("1500");
+  const [insurance, setInsurance] = useState("1000");
   const r = toNum(interestRate) / 100 / 12;
   const n = 12 * 30;
   const principal = toNum(price) * (1 - toNum(downPayment) / 100);
+  const interest = principal * r;
   const numerator = (1 + r) ** n;
   const denominator = (1 + r) ** n - 1;
   const loanPayment = principal * r * (numerator / denominator);
+  const paymentPrincipal = loanPayment - interest;
   const monthlyPayment = loanPayment + toNum(propertyTax) + toNum(insurance);
+  const amortization = (b) => {
+    let balance = b;
+    let interestPaid = 0;
+    while (balance > 0) {
+      interestPaid += balance * r;
+      balance -= loanPayment - balance * r;
+    }
+    return interestPaid.toFixed(0);
+  };
   return (
     <div>
       <div>
@@ -35,12 +46,15 @@ function App() {
             ? "Please enter values"
             : `$${monthlyPayment.toFixed(0)}`}
         </p>
+        <p className="ml-10">Total Interest Paid: ${amortization(principal)}</p>
         {Number.isNaN(monthlyPayment) ? null : (
           <Chart
             monthlyPayment={monthlyPayment}
             propertyTax={propertyTax}
             loanPayment={loanPayment}
             insurance={insurance}
+            interest={interest}
+            paymentPrincipal={paymentPrincipal}
           />
         )}
       </div>
@@ -88,6 +102,12 @@ function App() {
           setValue={setPropertyTax}
         />
       </div>
+      <p className="text-xs ml-10 mt-0">
+        For general informational purposes only. Actual rates available to you
+        will depend on many factors including lender, income, credit, location,
+        and property value. Contact a mortgage broker to find out what programs
+        are available to you.
+      </p>
     </div>
   );
 }

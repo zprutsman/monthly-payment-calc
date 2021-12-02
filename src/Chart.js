@@ -1,25 +1,41 @@
 import React from "react";
 
 const Chart = (props) => {
-  const { loanPayment, monthlyPayment, insurance, propertyTax } = props;
+  const { paymentPrincipal, monthlyPayment, insurance, propertyTax, interest } =
+    props;
 
   return (
     <div className="pl-10 pt-6">
       <div
         className="principal bg-blue-400 mb-2 transition-all duration-500 ease-linear p-2 relative"
         style={{
-          width: (loanPayment / monthlyPayment) * 100 + "%",
+          width: (paymentPrincipal / monthlyPayment) * 100 + "%",
           height: 25,
         }}
       >
-        <p className="text-xs text-white pb-1">Principal & Interest</p>
+        <p className="text-xs text-white pb-1">Principal</p>
         <p className="absolute right-0.5 bottom-0.5 text-xs text-white">
-          ${loanPayment.toFixed(0)}
+          ${paymentPrincipal.toFixed(0)}
+        </p>
+      </div>
+      <div
+        className="tax bg-green-300 transition-all duration-500 ease-linear p-2 mb-2 relative"
+        style={{
+          width: (interest / monthlyPayment) * 100 + "%",
+          height: 25,
+        }}
+      >
+        <p className="text-xs text-white pb-1">Interest</p>
+        <p className="absolute right-0.5 bottom-0.5 text-xs text-white">
+          ${interest.toFixed(0)}
         </p>
       </div>
       <div
         className="insurance bg-yellow-400 mb-2 p-2 relative transition-all duration-500 ease-linear"
-        style={{ width: (insurance / monthlyPayment) * 100 + "%", height: 25 }}
+        style={{
+          width: (insurance / monthlyPayment) * 100 + "%",
+          height: 25,
+        }}
       >
         <p className="text-xs text-white pb-1">Homeowner's Insurance</p>
         <p className="absolute right-0.5 bottom-0.5 text-xs text-white">
