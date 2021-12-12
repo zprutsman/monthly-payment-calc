@@ -97,7 +97,7 @@ function App() {
           setValue={setInsurance}
         />
         <ExtraCosts
-          title="Property Tax"
+          title="Property Tax (Annual)"
           value={propertyTax}
           setValue={setPropertyTax}
         />

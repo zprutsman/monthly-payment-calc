@@ -1,6 +1,13 @@
 const ExtraCosts = (props) => {
   const updateExtraCosts = (e) => {
-    props.setValue(e.target.value);
+    let value = e.target.value;
+    props.setValue(
+      Intl.NumberFormat("en-US", {
+        style: "currency",
+        currency: "USD",
+        maximumSignificantDigits: 4,
+      }).format(value)
+    );
   };
   return (
     <div className="flex-auto p-6 border-2 border-gray-500 m-2">

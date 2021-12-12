@@ -15,7 +15,11 @@ const Chart = (props) => {
       >
         <p className="text-xs text-white pb-1">Principal</p>
         <p className="absolute right-0.5 bottom-0.5 text-xs text-white">
-          ${paymentPrincipal.toFixed(0)}
+          {Intl.NumberFormat("en-US", {
+            style: "currency",
+            currency: "USD",
+            maximumSignificantDigits: 4,
+          }).format(paymentPrincipal)}
         </p>
       </div>
       <div
