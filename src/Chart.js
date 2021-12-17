@@ -1,63 +1,264 @@
 import React from "react";
+import { useEffect } from "react";
 
 const Chart = (props) => {
-  const { paymentPrincipal, monthlyPayment, insurance, propertyTax, interest } =
-    props;
+  const {
+    paymentPrincipal,
+    monthlyPayment,
+    insurance,
+    propertyTaxMonthly,
+    interest,
+  } = props;
 
   return (
-    <div className="pl-10 pt-6">
+    <div
+      style={{
+        borderBottom: "2px solid #5E6367",
+        maxWidth: 960,
+        margin: "0 0 0 20px",
+        paddingBottom: 20,
+        paddingTop: 20,
+      }}
+    >
       <div
-        className="principal bg-blue-400 mb-2 transition-all duration-500 ease-linear p-2 relative"
-        style={{
-          width: (paymentPrincipal / monthlyPayment) * 100 + "%",
-          height: 25,
-        }}
+        className="interest transition-all mb-2 duration-500 ease-linear p-2 relative"
+        style={
+          (paymentPrincipal / monthlyPayment) * 100 > 9
+            ? {
+                width: (paymentPrincipal / monthlyPayment) * 100 + "%",
+                height: 25,
+                backgroundColor: "#009cde",
+              }
+            : {
+                width: (paymentPrincipal / monthlyPayment) * 100 + "%",
+                height: 25,
+                backgroundColor: "#009cde",
+              }
+        }
       >
-        <p className="text-xs text-white pb-1">Principal</p>
-        <p className="absolute right-0.5 bottom-0.5 text-xs text-white">
-          {Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD",
-            maximumSignificantDigits: 4,
-          }).format(paymentPrincipal)}
+        <p
+          style={
+            (paymentPrincipal / monthlyPayment) * 100 > 9
+              ? {
+                  fontSize: "14px",
+                  color: "white",
+                  fontWeight: "500",
+                  top: 3,
+                  position: "absolute",
+                  left: 10,
+                  right: 0,
+                  bottom: 0,
+                  transition: "0.5s ease-linear",
+                }
+              : {
+                  fontSize: "14px",
+                  color: "white",
+                  fontWeight: "500",
+                  top: -18,
+                  position: "absolute",
+                  left: 5,
+                  right: 0,
+                  bottom: 0,
+                  transition: "0.5s ease-linear",
+                }
+          }
+        >
+          Principle
+        </p>
+        <p
+          style={{
+            top: 2,
+            right: -50,
+            position: "absolute",
+            fontSize: "15px",
+            color: "white",
+            fontWeight: "500",
+          }}
+        >
+          ${paymentPrincipal.toFixed(0)}
         </p>
       </div>
       <div
-        className="tax bg-green-300 transition-all duration-500 ease-linear p-2 mb-2 relative"
-        style={{
-          width: (interest / monthlyPayment) * 100 + "%",
-          height: 25,
-        }}
+        className="interest transition-all mb-2 duration-500 ease-linear p-2 relative"
+        style={
+          (interest / monthlyPayment) * 100 > 9
+            ? {
+                width: (interest / monthlyPayment) * 100 + "%",
+                height: 25,
+                backgroundColor: "#929236",
+              }
+            : {
+                width: (interest / monthlyPayment) * 100 + "%",
+                height: 25,
+                backgroundColor: "#929236",
+                marginTop: 20,
+              }
+        }
       >
-        <p className="text-xs text-white pb-1">Interest</p>
-        <p className="absolute right-0.5 bottom-0.5 text-xs text-white">
+        <p
+          style={
+            (interest / monthlyPayment) * 100 > 9
+              ? {
+                  fontSize: "14px",
+                  color: "white",
+                  fontWeight: "500",
+                  top: 3,
+                  position: "absolute",
+                  left: 10,
+                  right: 0,
+                  bottom: 0,
+                  transition: "0.5s ease-linear",
+                }
+              : {
+                  fontSize: "14px",
+                  color: "white",
+                  fontWeight: "500",
+                  top: -18,
+                  position: "absolute",
+                  left: 5,
+                  right: 0,
+                  bottom: 0,
+                  transition: "0.5s ease-linear",
+                }
+          }
+        >
+          Interest
+        </p>
+        <p
+          style={{
+            top: 2,
+            right: -50,
+            position: "absolute",
+            fontSize: "15px",
+            color: "white",
+            fontWeight: "500",
+          }}
+        >
           ${interest.toFixed(0)}
         </p>
       </div>
-      <div
-        className="insurance bg-yellow-400 mb-2 p-2 relative transition-all duration-500 ease-linear"
-        style={{
-          width: (insurance / monthlyPayment) * 100 + "%",
-          height: 25,
-        }}
-      >
-        <p className="text-xs text-white pb-1">Homeowner's Insurance</p>
-        <p className="absolute right-0.5 bottom-0.5 text-xs text-white">
-          ${insurance}
-        </p>
-      </div>
-      <div
-        className="tax bg-purple-700 transition-all duration-500 ease-linear p-2 relative"
-        style={{
-          width: (propertyTax / monthlyPayment) * 100 + "%",
-          height: 25,
-        }}
-      >
-        <p className="text-xs text-white pb-1">Property Tax</p>
-        <p className="absolute right-0.5 bottom-0.5 text-xs text-white">
-          ${propertyTax}
-        </p>
-      </div>
+      {insurance === 0 ? null : (
+        <div
+          className="insurance mb-2 p-2 relative transition-all duration-500 ease-linear"
+          style={
+            (insurance / monthlyPayment) * 100 > 9
+              ? {
+                  width: (insurance / monthlyPayment) * 100 + "%",
+                  height: 25,
+                  backgroundColor: "#E65526",
+                }
+              : {
+                  width: (insurance / monthlyPayment) * 100 + "%",
+                  height: 25,
+                  backgroundColor: "#E65526",
+                  marginTop: 20,
+                }
+          }
+        >
+          <p
+            style={
+              (insurance / monthlyPayment) * 100 > 9
+                ? {
+                    fontSize: "14px",
+                    color: "white",
+                    fontWeight: "500",
+                    top: 3,
+                    position: "absolute",
+                    left: 10,
+                    right: 0,
+                    bottom: 0,
+                    transition: "0.5s ease-linear",
+                  }
+                : {
+                    fontSize: "14px",
+                    color: "white",
+                    fontWeight: "500",
+                    top: -18,
+                    position: "absolute",
+                    left: 5,
+                    right: 0,
+                    bottom: 0,
+                    transition: "0.5s ease-linear",
+                  }
+            }
+          >
+            Insurance
+          </p>
+          <p
+            style={{
+              top: 2,
+              right: -50,
+              position: "absolute",
+              fontSize: "15px",
+              color: "white",
+              fontWeight: "500",
+            }}
+          >
+            ${insurance}
+          </p>
+        </div>
+      )}
+      {propertyTaxMonthly === 0 ? null : (
+        <div
+          className="tax transition-all duration-500 ease-linear p-2 relative"
+          style={
+            (propertyTaxMonthly / monthlyPayment) * 100 > 9
+              ? {
+                  width: (propertyTaxMonthly / monthlyPayment) * 100 + "%",
+                  height: 25,
+                  backgroundColor: "#5AC0B1",
+                }
+              : {
+                  width: (propertyTaxMonthly / monthlyPayment) * 100 + "%",
+                  height: 25,
+                  backgroundColor: "#5AC0B1",
+                  marginTop: 20,
+                }
+          }
+        >
+          <p
+            style={
+              (propertyTaxMonthly / monthlyPayment) * 100 > 9
+                ? {
+                    fontSize: "14px",
+                    color: "white",
+                    fontWeight: "500",
+                    top: 3,
+                    position: "absolute",
+                    left: 10,
+                    right: 0,
+                    bottom: 0,
+                    transition: "0.5s ease-linear",
+                  }
+                : {
+                    fontSize: "14px",
+                    color: "white",
+                    fontWeight: "500",
+                    top: -18,
+                    position: "absolute",
+                    left: 5,
+                    right: 0,
+                    bottom: 0,
+                    transition: "0.5s ease-linear",
+                  }
+            }
+          >
+            Taxes
+          </p>
+          <p
+            style={{
+              top: 2,
+              right: -50,
+              position: "absolute",
+              fontSize: "15px",
+              color: "white",
+              fontWeight: "500",
+            }}
+          >
+            ${propertyTaxMonthly.toFixed(0)}
+          </p>
+        </div>
+      )}
     </div>
   );
 };

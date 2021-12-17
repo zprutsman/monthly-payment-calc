@@ -17,22 +17,61 @@ const DownPayment = (props) => {
   const downPaymentConverted = (downPayment / 100) * price;
 
   return (
-    <div className="flex-auto p-6 border-2 border-gray-500 m-2">
-      <p>{title}</p>
+    <div className="widgetContainer">
+      <p
+        style={{
+          textAlign: "left",
+          paddingLeft: 20,
+          paddingTop: 7,
+          color: "#414042",
+          fontWeight: "600",
+          fontSize: 14,
+        }}
+      >
+        {title}
+      </p>
+      <div>
+        <span
+          style={{
+            backgroundColor: "white",
+            paddingTop: 2,
+            paddingBottom: 3,
+            paddingRight: 4,
+            color: "#5E6367",
+            paddingLeft: 4,
+            fontWeight: "500",
+          }}
+        >
+          %
+        </span>
+        <input
+          style={{
+            width: "40%",
+            color: "#002a4e",
+            marginTop: 5,
+            marginBottom: 5,
+            fontWeight: "600",
+          }}
+          placeholder={placeholder}
+          type={type}
+          value={value}
+          onChange={updateDownPayment}
+          min={min}
+          max={max}
+        />
+        <span
+          style={{
+            color: "#414042",
+            fontWeight: "600",
+            fontSize: 14,
+            paddingLeft: 10,
+          }}
+        >
+          (${downPaymentConverted.toLocaleString()})
+        </span>
+      </div>
       <input
-        placeholder={placeholder}
-        className="rounded border-2 border-gray-400 text-base text-green-500"
-        type={type}
-        value={value}
-        onChange={updateDownPayment}
-        min={min}
-        max={max}
-      />
-      <span className="pl-2 text-green-500">
-        (${downPaymentConverted.toFixed(0)})
-      </span>
-      <input
-        className="block mt-4 mb-0"
+        style={{ width: "80%", marginTop: 5 }}
         type="range"
         value={value === "" ? min : value}
         onChange={updateDownPayment}

@@ -11,24 +11,54 @@ const ListingPrice = (props) => {
     setTaxValue,
   } = props;
   const updatePrice = (e) => {
-    const estPropertyTax = (e.target.value * 0.011) / 12;
+    const estPropertyTax = e.target.value * 0.011;
     setValue(e.target.value);
     setTaxValue(estPropertyTax.toFixed(0));
   };
   return (
-    <div className="flex-auto p-6 border-2 border-gray-500 m-2">
-      <p>{title}</p>
+    <div className="widgetContainer">
+      <p
+        style={{
+          textAlign: "left",
+          paddingLeft: 20,
+          paddingTop: 7,
+          color: "#414042",
+          fontWeight: "500",
+        }}
+      >
+        {title}
+      </p>
+      <div>
+        <span
+          style={{
+            backgroundColor: "white",
+            paddingTop: 2,
+            paddingBottom: 3,
+            paddingRight: 4,
+            color: "#5E6367",
+            paddingLeft: 4,
+          }}
+        >
+          $
+        </span>
+        <input
+          style={{
+            width: "80%",
+            color: "#002a4e",
+            marginTop: 5,
+            marginBottom: 5,
+            fontWeight: "500",
+          }}
+          placeholder={placeholder}
+          type={type}
+          value={value}
+          onChange={updatePrice}
+          min={min}
+          max={max}
+        />
+      </div>
       <input
-        placeholder={placeholder}
-        className="rounded border-2 border-gray-400 text-base text-green-500"
-        type={type}
-        value={value}
-        onChange={updatePrice}
-        min={min}
-        max={max}
-      />
-      <input
-        className="block mt-4 mb-0"
+        style={{ width: "80%", marginTop: 5 }}
         type="range"
         value={value === "" ? min : value}
         onChange={updatePrice}

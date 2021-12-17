@@ -1,25 +1,51 @@
 const ExtraCosts = (props) => {
   const updateExtraCosts = (e) => {
     let value = e.target.value;
-    props.setValue(
-      Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-        maximumSignificantDigits: 4,
-      }).format(value)
-    );
+    props.setValue(value);
   };
   return (
-    <div className="flex-auto p-6 border-2 border-gray-500 m-2">
-      <p>{props.title}</p>
-      <input
-        placeholder={props.placeholder}
-        className="rounded border-2 border-gray-400 text-base text-green-500"
-        type="number"
-        value={props.value}
-        onChange={updateExtraCosts}
-        min={0}
-      />
+    <div
+      style={{
+        height: 30,
+        textAlign: "right",
+        paddingTop: 3,
+      }}
+    >
+      <div className="extraCostContainer">
+        <p
+          style={{
+            fontSize: 14,
+            paddingRight: 5,
+            fontWeight: "600",
+            color: "#414042",
+          }}
+        >
+          {props.title}
+        </p>
+        <div>
+          <span
+            style={{
+              backgroundColor: "white",
+              paddingTop: 2,
+              paddingBottom: 3,
+              paddingRight: 4,
+              color: "#5E6367",
+              paddingLeft: 4,
+              fontWeight: 500,
+            }}
+          >
+            $
+          </span>
+          <input
+            style={{ width: "80%", color: "#002a4e", fontWeight: "600" }}
+            placeholder={props.placeholder}
+            type="number"
+            value={props.value}
+            onChange={updateExtraCosts}
+            min={0}
+          />
+        </div>
+      </div>
     </div>
   );
 };
