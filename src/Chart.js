@@ -21,7 +21,7 @@ const Chart = (props) => {
       }}
     >
       <div
-        className="interest transition-all mb-2 duration-500 ease-linear p-2 relative"
+        className="interest transition-all mb-2 duration-300 ease-linear p-2 relative"
         style={
           (paymentPrincipal / monthlyPayment) * 100 > 9
             ? {
@@ -37,6 +37,7 @@ const Chart = (props) => {
         }
       >
         <p
+          className="transition-all duration-300 ease-linear"
           style={
             (paymentPrincipal / monthlyPayment) * 100 > 9
               ? {
@@ -46,9 +47,6 @@ const Chart = (props) => {
                   top: 3,
                   position: "absolute",
                   left: 10,
-                  right: 0,
-                  bottom: 0,
-                  transition: "0.5s ease-linear",
                 }
               : {
                   fontSize: "14px",
@@ -56,10 +54,7 @@ const Chart = (props) => {
                   fontWeight: "500",
                   top: -18,
                   position: "absolute",
-                  left: 5,
-                  right: 0,
-                  bottom: 0,
-                  transition: "0.5s ease-linear",
+                  left: 10,
                 }
           }
         >
@@ -96,6 +91,7 @@ const Chart = (props) => {
         }
       >
         <p
+          className="transition-all duration-300 ease-linear"
           style={
             (interest / monthlyPayment) * 100 > 9
               ? {
@@ -105,9 +101,6 @@ const Chart = (props) => {
                   top: 3,
                   position: "absolute",
                   left: 10,
-                  right: 0,
-                  bottom: 0,
-                  transition: "0.5s ease-linear",
                 }
               : {
                   fontSize: "14px",
@@ -115,10 +108,7 @@ const Chart = (props) => {
                   fontWeight: "500",
                   top: -18,
                   position: "absolute",
-                  left: 5,
-                  right: 0,
-                  bottom: 0,
-                  transition: "0.5s ease-linear",
+                  left: 10,
                 }
           }
         >
@@ -156,6 +146,7 @@ const Chart = (props) => {
           }
         >
           <p
+            className="transition-all duration-300 ease-linear"
             style={
               (insurance / monthlyPayment) * 100 > 9
                 ? {
@@ -165,9 +156,6 @@ const Chart = (props) => {
                     top: 3,
                     position: "absolute",
                     left: 10,
-                    right: 0,
-                    bottom: 0,
-                    transition: "0.5s ease-linear",
                   }
                 : {
                     fontSize: "14px",
@@ -175,10 +163,7 @@ const Chart = (props) => {
                     fontWeight: "500",
                     top: -18,
                     position: "absolute",
-                    left: 5,
-                    right: 0,
-                    bottom: 0,
-                    transition: "0.5s ease-linear",
+                    left: 10,
                   }
             }
           >
@@ -217,6 +202,7 @@ const Chart = (props) => {
           }
         >
           <p
+            className="transition-all duration-300 ease-linear"
             style={
               (propertyTaxMonthly / monthlyPayment) * 100 > 9
                 ? {
@@ -226,9 +212,6 @@ const Chart = (props) => {
                     top: 3,
                     position: "absolute",
                     left: 10,
-                    right: 0,
-                    bottom: 0,
-                    transition: "0.5s ease-linear",
                   }
                 : {
                     fontSize: "14px",
@@ -236,10 +219,7 @@ const Chart = (props) => {
                     fontWeight: "500",
                     top: -18,
                     position: "absolute",
-                    left: 5,
-                    right: 0,
-                    bottom: 0,
-                    transition: "0.5s ease-linear",
+                    left: 10,
                   }
             }
           >
