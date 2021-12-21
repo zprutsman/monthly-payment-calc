@@ -1,3 +1,4 @@
+import { getByLabelText } from "@testing-library/react";
 import React from "react";
 import { useEffect } from "react";
 
@@ -9,7 +10,6 @@ const Chart = (props) => {
     propertyTaxMonthly,
     interest,
   } = props;
-
   return (
     <div
       style={{
@@ -61,6 +61,7 @@ const Chart = (props) => {
           Principle
         </p>
         <p
+          className="principalLabel"
           style={{
             top: 2,
             right: -50,
@@ -70,7 +71,7 @@ const Chart = (props) => {
             fontWeight: "500",
           }}
         >
-          ${paymentPrincipal.toFixed(0)}
+          ${paymentPrincipal.toFixed(0).replace(/\d(?=(\d{3})+$)/g, "$&,")}
         </p>
       </div>
       <div
@@ -124,7 +125,7 @@ const Chart = (props) => {
             fontWeight: "500",
           }}
         >
-          ${interest.toFixed(0)}
+          ${interest.toFixed(0).replace(/\d(?=(\d{3})+$)/g, "$&,")}
         </p>
       </div>
       {insurance == 0 ? null : (
@@ -179,7 +180,7 @@ const Chart = (props) => {
               fontWeight: "500",
             }}
           >
-            ${insurance}
+            ${insurance.replace(/\d(?=(\d{3})+$)/g, "$&,")}
           </p>
         </div>
       )}
@@ -235,7 +236,7 @@ const Chart = (props) => {
               fontWeight: "500",
             }}
           >
-            ${propertyTaxMonthly.toFixed(0)}
+            ${propertyTaxMonthly.toFixed(0).replace(/\d(?=(\d{3})+$)/g, "$&,")}
           </p>
         </div>
       )}

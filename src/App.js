@@ -75,7 +75,9 @@ function App() {
             >
               {Number.isNaN(monthlyPayment)
                 ? "Please enter values"
-                : `$${monthlyPayment.toFixed(0)}`}
+                : `$${monthlyPayment
+                    .toFixed(0)
+                    .replace(/\d(?=(\d{3})+$)/g, "$&,")}`}
             </span>
           </p>
           <p
@@ -96,7 +98,7 @@ function App() {
                 paddingLeft: 10,
               }}
             >
-              ${amortization(principal)}
+              ${amortization(principal).replace(/\d(?=(\d{3})+$)/g, "$&,")}
             </span>
           </p>
         </div>

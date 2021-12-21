@@ -23,7 +23,8 @@ const ListingPrice = (props) => {
           paddingLeft: 20,
           paddingTop: 7,
           color: "#414042",
-          fontWeight: "500",
+          fontWeight: "600",
+          fontSize: 15,
         }}
       >
         {title}

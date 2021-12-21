@@ -67,7 +67,8 @@ const DownPayment = (props) => {
             paddingLeft: 10,
           }}
         >
-          (${downPaymentConverted.toLocaleString()})
+          (${downPaymentConverted.toFixed(0).replace(/\d(?=(\d{3})+$)/g, "$&,")}
+          )
         </span>
       </div>
       <input
