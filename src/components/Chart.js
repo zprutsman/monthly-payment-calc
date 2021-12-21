@@ -127,7 +127,7 @@ const Chart = (props) => {
           ${interest.toFixed(0)}
         </p>
       </div>
-      {insurance === 0 ? null : (
+      {insurance == 0 ? null : (
         <div
           className="insurance mb-2 p-2 relative transition-all duration-500 ease-linear"
           style={

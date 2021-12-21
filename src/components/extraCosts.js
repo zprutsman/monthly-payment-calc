@@ -34,7 +34,7 @@ const ExtraCosts = (props) => {
               fontWeight: 500,
             }}
           >
-            $
+            {props.prefix}
           </span>
           <input
             style={{ width: "80%", color: "#002a4e", fontWeight: "600" }}
