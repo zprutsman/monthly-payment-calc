@@ -48,9 +48,29 @@ const LoanTerm = (props) => {
                 fontWeight: "600",
                 fontSize: "14px",
               }}
+              value="20"
+            >
+              20 Years
+            </option>
+            <option
+              style={{
+                color: "#002a4e",
+                fontWeight: "600",
+                fontSize: "14px",
+              }}
               value="15"
             >
               15 Years
+            </option>
+            <option
+              style={{
+                color: "#002a4e",
+                fontWeight: "600",
+                fontSize: "14px",
+              }}
+              value="10"
+            >
+              10 Years
             </option>
           </select>
         </div>

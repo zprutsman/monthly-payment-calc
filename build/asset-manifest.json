@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "https://zprutsman.github.io/monthly-payment-calc/build/static/css/main.67e1fc40.chunk.css",
-    "main.js": "https://zprutsman.github.io/monthly-payment-calc/build/static/js/main.63d806e4.chunk.js",
-    "main.js.map": "https://zprutsman.github.io/monthly-payment-calc/build/static/js/main.63d806e4.chunk.js.map",
+    "main.js": "https://zprutsman.github.io/monthly-payment-calc/build/static/js/main.3d3c4480.chunk.js",
+    "main.js.map": "https://zprutsman.github.io/monthly-payment-calc/build/static/js/main.3d3c4480.chunk.js.map",
     "runtime-main.js": "https://zprutsman.github.io/monthly-payment-calc/build/static/js/runtime-main.070987d3.js",
     "runtime-main.js.map": "https://zprutsman.github.io/monthly-payment-calc/build/static/js/runtime-main.070987d3.js.map",
     "static/js/2.93240993.chunk.js": "https://zprutsman.github.io/monthly-payment-calc/build/static/js/2.93240993.chunk.js",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.070987d3.js",
     "static/js/2.93240993.chunk.js",
     "static/css/main.67e1fc40.chunk.css",
-    "static/js/main.63d806e4.chunk.js"
+    "static/js/main.3d3c4480.chunk.js"
   ]
 }
