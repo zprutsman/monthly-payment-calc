@@ -46,6 +46,7 @@ const InterestRate = (props) => {
           onChange={updatePrice}
           min={min}
           max={max}
+          step="0.25"
         />
       </div>
       <input

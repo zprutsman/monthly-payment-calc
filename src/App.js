@@ -41,7 +41,7 @@ function App() {
     return interestPaid.toFixed(0);
   };
   return (
-    <div className="container">
+    <div className="calcContainer">
       <div
         style={{
           background: "#F1F1F2",
