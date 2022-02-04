@@ -4,11 +4,17 @@ const InterestRate = (props) => {
     setValue(e.target.value);
   };
   return (
-    <div className="widgetContainer">
+    <div
+      className="widgetContainer"
+      style={{
+        width: 150,
+        paddingLeft: 10,
+      }}
+    >
       <p
         style={{
           textAlign: "left",
-          paddingLeft: 20,
+          paddingLeft: 15,
           paddingTop: 7,
           color: "#414042",
           fontWeight: "600",
@@ -17,7 +23,7 @@ const InterestRate = (props) => {
       >
         {title}
       </p>
-      <div>
+      <div style={{ paddingLeft: 10 }}>
         <span
           style={{
             backgroundColor: "white",

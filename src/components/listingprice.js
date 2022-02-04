@@ -48,7 +48,7 @@ const ListingPrice = (props) => {
             color: "#002a4e",
             marginTop: 5,
             marginBottom: 5,
-            fontWeight: "500",
+            fontWeight: "600",
           }}
           placeholder={placeholder}
           type={type}

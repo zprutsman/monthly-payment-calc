@@ -5,6 +5,7 @@
 body {
   margin: 0;
   font-family: "Montserrat", sans-serif;
+  background-color: #414042;
 }
 
 .widgetContainer {
@@ -12,6 +13,8 @@ body {
   height: 100px;
   width: 215px;
   text-align: center;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 .calcContainer {
   padding: 50px 0;
@@ -19,19 +22,60 @@ body {
   margin: 0 auto;
 }
 .extraCostContainer {
+  max-width: 1000px;
   display: grid;
-  grid-template-columns: 50% 50%;
-  justify-content: center;
+  grid-template-columns: 60% 40%;
 }
 .inputContainer {
   margin-top: 40px;
   display: grid;
-  grid-template-columns: 215px 215px 215px 253px;
+  grid-template-columns: 215px 215px 493px;
   max-width: 960px;
-  margin: 20px 20px;
+  margin: 20px 20px 10px 20px;
+  gap: 15px;
+}
+.disclaimerContainer {
+  display: grid;
+  grid-template-columns: 65% 35%;
+  margin: 0 20px;
+}
+.headingContainer {
+  background: #f1f1f2;
+  padding: 10px 20px 10px 40px;
+  display: grid;
+  grid-template-columns: 60% 40%;
+  align-items: center;
+}
+.bannerContainer {
+  display: grid;
+  grid-template-columns: 11% 89%;
+  justify-content: center;
+  align-items: top;
   gap: 20px;
 }
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   opacity: 1;
+}
+@media screen and (max-width: 1024px) {
+  .inputContainer {
+    grid-template-columns: 253px;
+    justify-content: center;
+  }
+  .widgetContainer {
+    width: 253px;
+  }
+  .inputContainer p {
+    font-size: 12px;
+  }
+  .disclaimerContainer {
+    display: block;
+    text-align: center;
+  }
+  .bannerContainer {
+    display: none;
+  }
+  .headingContainer {
+    grid-template-columns: 100%;
+  }
 }

@@ -1,4 +1,3 @@
-import { getByLabelText } from "@testing-library/react";
 import React from "react";
 import { useEffect } from "react";
 
@@ -13,10 +12,9 @@ const Chart = (props) => {
   return (
     <div
       style={{
-        borderBottom: "2px solid #5E6367",
         maxWidth: 960,
         margin: "0 0 0 20px",
-        paddingBottom: 20,
+        paddingBottom: 0,
         paddingTop: 20,
       }}
     >
@@ -26,12 +24,12 @@ const Chart = (props) => {
           (paymentPrincipal / monthlyPayment) * 100 > 9
             ? {
                 width: (paymentPrincipal / monthlyPayment) * 100 + "%",
-                height: 25,
+                height: 30,
                 backgroundColor: "#009cde",
               }
             : {
                 width: (paymentPrincipal / monthlyPayment) * 100 + "%",
-                height: 25,
+                height: 30,
                 backgroundColor: "#009cde",
               }
         }
@@ -41,10 +39,10 @@ const Chart = (props) => {
           style={
             (paymentPrincipal / monthlyPayment) * 100 > 9
               ? {
-                  fontSize: "14px",
+                  fontSize: "16px",
                   color: "white",
                   fontWeight: "500",
-                  top: 3,
+                  top: 4,
                   position: "absolute",
                   left: 10,
                 }
@@ -54,7 +52,7 @@ const Chart = (props) => {
                   fontWeight: "500",
                   top: -18,
                   position: "absolute",
-                  left: 10,
+                  left: 5,
                 }
           }
         >
@@ -63,10 +61,10 @@ const Chart = (props) => {
         <p
           className="principalLabel"
           style={{
-            top: 2,
-            right: -50,
+            top: 4,
+            left: "102%",
             position: "absolute",
-            fontSize: "15px",
+            fontSize: "16px",
             color: "white",
             fontWeight: "500",
           }}
@@ -80,12 +78,12 @@ const Chart = (props) => {
           (interest / monthlyPayment) * 100 > 9
             ? {
                 width: (interest / monthlyPayment) * 100 + "%",
-                height: 25,
+                height: 30,
                 backgroundColor: "#929236",
               }
             : {
                 width: (interest / monthlyPayment) * 100 + "%",
-                height: 25,
+                height: 30,
                 backgroundColor: "#929236",
                 marginTop: 20,
               }
@@ -96,10 +94,10 @@ const Chart = (props) => {
           style={
             (interest / monthlyPayment) * 100 > 9
               ? {
-                  fontSize: "14px",
+                  fontSize: "16px",
                   color: "white",
                   fontWeight: "500",
-                  top: 3,
+                  top: 4,
                   position: "absolute",
                   left: 10,
                 }
@@ -109,7 +107,7 @@ const Chart = (props) => {
                   fontWeight: "500",
                   top: -18,
                   position: "absolute",
-                  left: 10,
+                  left: 5,
                 }
           }
         >
@@ -117,10 +115,10 @@ const Chart = (props) => {
         </p>
         <p
           style={{
-            top: 2,
-            right: -50,
+            top: 4,
+            left: "102%",
             position: "absolute",
-            fontSize: "15px",
+            fontSize: "16px",
             color: "white",
             fontWeight: "500",
           }}
@@ -135,12 +133,12 @@ const Chart = (props) => {
             (insurance / monthlyPayment) * 100 > 9
               ? {
                   width: (insurance / monthlyPayment) * 100 + "%",
-                  height: 25,
+                  height: 30,
                   backgroundColor: "#E65526",
                 }
               : {
                   width: (insurance / monthlyPayment) * 100 + "%",
-                  height: 25,
+                  height: 30,
                   backgroundColor: "#E65526",
                   marginTop: 20,
                 }
@@ -151,10 +149,10 @@ const Chart = (props) => {
             style={
               (insurance / monthlyPayment) * 100 > 9
                 ? {
-                    fontSize: "14px",
+                    fontSize: "16px",
                     color: "white",
                     fontWeight: "500",
-                    top: 3,
+                    top: 4,
                     position: "absolute",
                     left: 10,
                   }
@@ -164,7 +162,7 @@ const Chart = (props) => {
                     fontWeight: "500",
                     top: -18,
                     position: "absolute",
-                    left: 10,
+                    left: 5,
                   }
             }
           >
@@ -172,15 +170,15 @@ const Chart = (props) => {
           </p>
           <p
             style={{
-              top: 2,
-              right: -50,
+              top: 4,
+              left: "102%",
               position: "absolute",
-              fontSize: "15px",
+              fontSize: "16px",
               color: "white",
               fontWeight: "500",
             }}
           >
-            ${insurance.replace(/\d(?=(\d{3})+$)/g, "$&,")}
+            ${insurance.toFixed(0).replace(/\d(?=(\d{3})+$)/g, "$&,")}
           </p>
         </div>
       )}
@@ -191,12 +189,12 @@ const Chart = (props) => {
             (propertyTaxMonthly / monthlyPayment) * 100 > 9
               ? {
                   width: (propertyTaxMonthly / monthlyPayment) * 100 + "%",
-                  height: 25,
+                  height: 30,
                   backgroundColor: "#5AC0B1",
                 }
               : {
                   width: (propertyTaxMonthly / monthlyPayment) * 100 + "%",
-                  height: 25,
+                  height: 30,
                   backgroundColor: "#5AC0B1",
                   marginTop: 20,
                 }
@@ -207,10 +205,10 @@ const Chart = (props) => {
             style={
               (propertyTaxMonthly / monthlyPayment) * 100 > 9
                 ? {
-                    fontSize: "14px",
+                    fontSize: "16px",
                     color: "white",
                     fontWeight: "500",
-                    top: 3,
+                    top: 4,
                     position: "absolute",
                     left: 10,
                   }
@@ -220,7 +218,7 @@ const Chart = (props) => {
                     fontWeight: "500",
                     top: -18,
                     position: "absolute",
-                    left: 10,
+                    left: 5,
                   }
             }
           >
@@ -228,10 +226,10 @@ const Chart = (props) => {
           </p>
           <p
             style={{
-              top: 2,
-              right: -50,
+              top: 4,
+              left: "102%",
               position: "absolute",
-              fontSize: "15px",
+              fontSize: "16px",
               color: "white",
               fontWeight: "500",
             }}

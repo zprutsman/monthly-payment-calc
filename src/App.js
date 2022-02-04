@@ -6,7 +6,8 @@ import Chart from "./components/Chart";
 import DownPayment from "./components/downpayment";
 import ListingPrice from "./components/listingprice";
 import LoanTerm from "./components/LoanTerm";
-import banner from "./banner.jpg";
+import banner from "./Calc-icon-tab.png";
+import arrows from "./Calc-arrows.png";
 
 const toNum = (n) => {
   if (n === "") {
@@ -16,11 +17,12 @@ const toNum = (n) => {
 };
 function App() {
   const [downPayment, setDownPayment] = useState("10");
-  const [interestRate, setInterestRate] = useState("5");
-  const [price, setPrice] = useState("300000");
-  const [propertyTax, setPropertyTax] = useState("15000");
-  const [insurance, setInsurance] = useState("1000");
+  const [interestRate, setInterestRate] = useState("3.75");
+  const [price, setPrice] = useState("400000");
+  const [propertyTax, setPropertyTax] = useState("4400");
+  const [insurance, setInsurance] = useState("2000");
   const [loanTerm, setLoanTerm] = useState("30");
+  const monthlyInsurance = toNum(insurance) / 12;
   const propertyTaxMonthly = toNum(propertyTax) / 12;
   const r = toNum(interestRate) / 100 / 12;
   const n = 12 * toNum(loanTerm);
@@ -30,7 +32,7 @@ function App() {
   const denominator = (1 + r) ** n - 1;
   const loanPayment = principal * r * (numerator / denominator);
   const paymentPrincipal = loanPayment - interest;
-  const monthlyPayment = loanPayment + propertyTaxMonthly + toNum(insurance);
+  const monthlyPayment = loanPayment + propertyTaxMonthly + monthlyInsurance;
   const amortization = (b) => {
     let balance = b;
     let interestPaid = 0;
@@ -42,57 +44,119 @@ function App() {
   };
   return (
     <div className="calcContainer">
-      <div
-        style={{
-          background: "#F1F1F2",
-          padding: "10px 20px 10px 40px",
-          display: "grid",
-          gridTemplateColumns: "65% 35%",
-          alignItems: "center",
-        }}
-      >
+      <div className="headingContainer">
+        <div className="bannerContainer">
+          <img
+            style={{
+              maxWidth: 60,
+              alignSelf: "top",
+              justifySelf: "start",
+              marginTop: -17,
+              marginLeft: 15,
+            }}
+            src={banner}
+          />
+          <div>
+            <p
+              style={{
+                fontSize: 32,
+                maxWidth: 700,
+                lineHeight: "1.2",
+                textAlign: "left",
+                color: "#002a4e",
+                fontWeight: "600",
+                alignSelf: "top",
+                textTransform: "uppercase",
+                marginTop: 15,
+              }}
+            >
+              Mortgage Calculator
+            </p>
+            <p
+              style={{
+                marginTop: 8,
+                marginBottom: 10,
+                fontSize: 15,
+                color: "#414042",
+                fontStyle: "italic",
+                maxWidth: 500,
+                fontWeight: "500",
+              }}
+            >
+              This is a breakdown of your first monthly payment. Future payments
+              will change over time. Connect with your agent for&nbsp;more
+              information on amortization details.
+            </p>
+          </div>
+        </div>
         <div>
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "24% 52% 24%",
+              marginTop: 20,
+              alignContent: "center",
+            }}
+          >
+            <p
+              style={{
+                borderTop: "#bbbcbc 2px solid",
+                marginTop: 10,
+              }}
+            ></p>
+            <p
+              style={{
+                fontSize: 16,
+                textTransform: "uppercase",
+                fontWeight: "600",
+                color: "#5E6367",
+                textAlign: "center",
+              }}
+            >
+              Monthly Payment
+            </p>
+            <p
+              style={{
+                borderTop: "#bbbcbc 2px solid",
+                marginTop: 10,
+              }}
+            ></p>
+          </div>
           <p
             style={{
-              fontSize: 18,
+              fontSize: 32,
               fontWeight: "500",
-              color: "#5E6367",
-              borderBottom: "1px solid #bbbcbc",
+              color: "#002a4e",
+              borderBottom: "2px solid #bbbcbc",
               maxWidth: 400,
               marginBottom: 7,
               paddingBottom: 10,
-              paddingTop: 10,
+              paddingTop: 5,
+              textAlign: "center",
+              fontWeight: "600",
             }}
           >
-            Monthly payment:
-            <span
-              style={{
-                fontSize: 22,
-                color: "#002a4e",
-                fontWeight: "600",
-                paddingLeft: 10,
-              }}
-            >
-              {Number.isNaN(monthlyPayment)
-                ? "Please enter values"
-                : `$${monthlyPayment
-                    .toFixed(0)
-                    .replace(/\d(?=(\d{3})+$)/g, "$&,")}`}
-            </span>
+            {Number.isNaN(monthlyPayment)
+              ? "Please enter values"
+              : `$${monthlyPayment
+                  .toFixed(0)
+                  .replace(/\d(?=(\d{3})+$)/g, "$&,")}`}
           </p>
           <p
             style={{
-              fontSize: 18,
+              fontSize: 14,
               fontWeight: "500",
               color: "#5E6367",
               maxWidth: 400,
               paddingBottom: 10,
+              textAlign: "center",
+              fontWeight: "600",
             }}
           >
             Total interest paid:
             <span
               style={{
-                fontSize: 22,
+                fontSize: 18,
                 color: "#002a4e",
                 fontWeight: "600",
                 paddingLeft: 10,
@@ -102,56 +166,44 @@ function App() {
             </span>
           </p>
         </div>
-        <div
-          style={{
-            display: "grid",
-            gridTemplateColumns: "50% 50%",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: 20,
-          }}
-        >
-          <p
-            style={{
-              fontSize: 30,
-              maxWidth: 200,
-              lineHeight: "1.2",
-              textAlign: "right",
-              color: "#5E6367",
-              fontWeight: "500",
-            }}
-          >
-            Mortgage Calculator
-          </p>
-          <img
-            style={{
-              maxWidth: 65,
-              alignSelf: "top",
-              justifySelf: "start",
-              marginTop: -25,
-            }}
-            src={banner}
-          />
-        </div>
       </div>
       <div></div>
       <div
         style={{
           backgroundColor: "#002a4e",
-          padding: "5px 25px 20px 20px",
+          padding: "5px 25px 5px 20px",
         }}
       >
-        {Number.isNaN(monthlyPayment) ? null : (
-          <Chart
-            monthlyPayment={monthlyPayment}
-            propertyTaxMonthly={propertyTaxMonthly}
-            loanPayment={loanPayment}
-            insurance={insurance}
-            interest={interest}
-            paymentPrincipal={paymentPrincipal}
-          />
-        )}
-
+        <div
+          style={{
+            display: "grid",
+            gridTemplateColumns: "8% 92%",
+            margin: "20px 10px",
+            gap: 15,
+          }}
+        >
+          <img
+            style={{
+              maxWidth: 50,
+              justifySelf: "right",
+            }}
+            src={arrows}
+          ></img>
+          <p
+            style={{
+              fontSize: 15,
+              color: "white",
+              fontStyle: "italic",
+              maxWidth: 725,
+              fontWeight: "500",
+            }}
+          >
+            The current values below are based on national averages. Choose
+            different values and use the sliders to experiment with different
+            principal amounts, interest rates, down payments, taxes, and
+            insurance to see what you can afford.
+          </p>
+        </div>
         <div class="inputContainer">
           <ListingPrice
             title="Listing Price $"
@@ -176,63 +228,81 @@ function App() {
             downPayment={downPayment}
             price={price}
           />
-          <InterestRate
-            title="Interest Rate %"
-            type="number"
-            placeholder="Enter Interest Rate"
-            min={1}
-            max={10}
-            value={interestRate}
-            setValue={setInterestRate}
-            step={0.25}
-          />
           <div
             style={{
+              display: "grid",
               backgroundColor: "#efefef",
-              paddingRight: 15,
-              paddingTop: 5,
-              paddingBottom: 5,
+              gridTemplateColumns: "40% 60%",
+              alignItems: "center",
+              justifyContent: "center",
             }}
           >
-            <ExtraCosts
-              title="Insurance"
-              value={insurance}
-              setValue={setInsurance}
-              prefix={"$"}
+            <InterestRate
+              title="Interest Rate %"
+              type="number"
+              placeholder="Enter Interest Rate"
+              min={1}
+              max={10}
+              value={interestRate}
+              setValue={setInterestRate}
+              step={0.25}
             />
-            <ExtraCosts
-              title="Property Taxes"
-              value={propertyTax}
-              setValue={setPropertyTax}
-              prefix={"$"}
-            />
-            <LoanTerm
-              value={loanTerm}
-              setValue={setLoanTerm}
-              title="Loan Term"
-            />
+            <p
+              style={{
+                fontSize: 15,
+                color: "#414042",
+                fontStyle: "italic",
+                fontWeight: "500",
+                textIndent: -5,
+              }}
+            >
+              *See today’s current rates below to input&nbsp;the&nbsp;most
+              accurate rate.
+            </p>
           </div>
         </div>
         <div
           style={{
+            backgroundColor: "#efefef",
+            paddingTop: 10,
+            paddingBottom: 10,
             display: "grid",
-            gridTemplateColumns: "55% 45%",
-            padding: "0 20px",
+            gridTemplateColumns: "30% 30% 39%",
+            maxWidth: 955,
+            margin: "0 auto",
+            justifyContent: "center",
           }}
         >
-          <p
-            style={{
-              fontSize: 12,
-              color: "#bbbcbc",
-              fontWeight: "500",
-              maxWidth: 500,
-            }}
-          >
-            For general informational purposes only. Actual rates available to
-            you will depend on many factors including lender, income, credit,
-            location, and property value. Contact a mortgage broker to find out
-            what programs are available to you.
-          </p>
+          <LoanTerm
+            value={loanTerm}
+            setValue={setLoanTerm}
+            title="Mortgage Term"
+          />
+          <ExtraCosts
+            title="Yearly Insurance"
+            value={insurance}
+            setValue={setInsurance}
+            prefix={"$"}
+          />
+          <ExtraCosts
+            title="Yearly Property Taxes"
+            value={propertyTax}
+            setValue={setPropertyTax}
+            prefix={"$"}
+          />
+        </div>
+        {Number.isNaN(monthlyPayment) ? null : (
+          <Chart
+            monthlyPayment={monthlyPayment}
+            propertyTaxMonthly={propertyTaxMonthly}
+            loanPayment={loanPayment}
+            insurance={monthlyInsurance}
+            interest={interest}
+            paymentPrincipal={paymentPrincipal}
+          />
+        )}
+        <div className="disclaimerContainer">
+          <p>&nbsp;</p>
           <p
             style={{
               justifySelf: "center",
@@ -242,6 +312,8 @@ function App() {
               textTransform: "uppercase",
               letterSpacing: 2,
               fontWeight: "500",
+              marginTop: 20,
+              marginBottom: 20,
             }}
           >
             Windermere Real Estate

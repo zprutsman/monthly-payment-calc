@@ -9,6 +9,8 @@ const ExtraCosts = (props) => {
         height: 30,
         textAlign: "right",
         paddingTop: 3,
+        maxWidth: 330,
+        margin: "0 auto",
       }}
     >
       <div className="extraCostContainer">
