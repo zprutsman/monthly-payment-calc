@@ -56,7 +56,7 @@ const Chart = (props) => {
                 }
           }
         >
-          Principle
+          Principal
         </p>
         <p
           className="principalLabel"
