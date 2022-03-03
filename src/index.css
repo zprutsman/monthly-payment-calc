@@ -59,11 +59,12 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 @media screen and (max-width: 1024px) {
   .inputContainer {
-    grid-template-columns: 253px;
+    grid-template-columns: 225px;
     justify-content: center;
   }
   .widgetContainer {
-    width: 253px;
+    width: 225px;
+    text-align: center;
   }
   .inputContainer p {
     font-size: 12px;

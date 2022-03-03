@@ -338,7 +338,7 @@ function App() {
             gridTemplateColumns: "15% 85%",
             justifyContent: "center",
             alignItems: "top",
-            gap: 20,
+            gap: 35,
             backgroundColor: "white",
             padding: "0 10px",
           }}
@@ -376,7 +376,7 @@ function App() {
                 fontSize: 15,
                 color: "#414042",
                 fontStyle: "italic",
-                maxWidth: 400,
+                maxWidth: 275,
                 fontWeight: "500",
               }}
             >
@@ -566,16 +566,6 @@ function App() {
               prefix={"$"}
             />
           </div>
-          {Number.isNaN(monthlyPayment) ? null : (
-            <Chart
-              monthlyPayment={monthlyPayment}
-              propertyTaxMonthly={propertyTaxMonthly}
-              loanPayment={loanPayment}
-              insurance={monthlyInsurance}
-              interest={interest}
-              paymentPrincipal={paymentPrincipal}
-            />
-          )}
           <div className="disclaimerContainer">
             <p>&nbsp;</p>
             <p
