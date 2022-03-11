@@ -9,11 +9,14 @@ const ListingPrice = (props) => {
     step,
     setValue,
     setTaxValue,
+    setInsuranceValue,
   } = props;
   const updatePrice = (e) => {
     const estPropertyTax = e.target.value * 0.011;
+    const estInsurance = e.target.value * 0.005;
     setValue(e.target.value);
     setTaxValue(estPropertyTax.toFixed(0));
+    setInsuranceValue(estInsurance.toFixed(0));
   };
   return (
     <div className="widgetContainer">

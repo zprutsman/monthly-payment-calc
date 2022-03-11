@@ -17,8 +17,8 @@ const toNum = (n) => {
 };
 function App() {
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
-  const [downPayment, setDownPayment] = useState("10");
-  const [interestRate, setInterestRate] = useState("3.75");
+  const [downPayment, setDownPayment] = useState("20");
+  const [interestRate, setInterestRate] = useState("4.25");
   const [price, setPrice] = useState("400000");
   const [propertyTax, setPropertyTax] = useState("4400");
   const [insurance, setInsurance] = useState("2000");
@@ -208,7 +208,9 @@ function App() {
               The current values below are based on national averages. Choose
               different values and use the sliders to experiment with different
               principal amounts, interest rates, down payments, taxes, and
-              insurance to see what you can afford.
+              insurance to see what you can afford. If your down payment is
+              below 20% PMI (Private Mortgage Insurance) will be added to your
+              monthly payment.
             </p>
           </div>
           <div class="inputContainer">
@@ -222,6 +224,7 @@ function App() {
               value={price}
               step={1}
               setTaxValue={setPropertyTax}
+              setInsuranceValue={setInsurance}
             />
             <DownPayment
               title="Down Payment %"
