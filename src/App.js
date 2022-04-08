@@ -208,9 +208,10 @@ function App() {
               The current values below are based on national averages. Choose
               different values and use the sliders to experiment with different
               principal amounts, interest rates, down payments, taxes, and
-              insurance to see what you can afford. If your down payment is
+              insurance to see what you can afford. PMI (Private Mortgage
+              Insurance) and HOA fees not included. If your down payment is
               below 20% PMI (Private Mortgage Insurance) will be added to your
-              monthly payment.
+              monthly payment. See below for more info.
             </p>
           </div>
           <div class="inputContainer">
@@ -494,9 +495,10 @@ function App() {
               The current values below are based on national averages. Choose
               different values and use the sliders to experiment with different
               principal amounts, interest rates, down payments, taxes, and
-              insurance to see what you can afford. If your down payment is
+              insurance to see what you can afford. PMI (Private Mortgage
+              Insurance) and HOA fees not included. If your down payment is
               below 20% PMI (Private Mortgage Insurance) will be added to your
-              monthly payment.
+              monthly payment. See below for more info.
             </p>
           </div>
           <div class="inputContainer">
