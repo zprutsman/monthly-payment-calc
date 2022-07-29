@@ -18,7 +18,7 @@ const toNum = (n) => {
 function App() {
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
   const [downPayment, setDownPayment] = useState("20");
-  const [interestRate, setInterestRate] = useState("4.25");
+  const [interestRate, setInterestRate] = useState("5");
   const [price, setPrice] = useState("400000");
   const [propertyTax, setPropertyTax] = useState("4400");
   const [insurance, setInsurance] = useState("2000");
