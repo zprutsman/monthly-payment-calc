@@ -18,7 +18,7 @@ const toNum = (n) => {
 function App() {
   const [deviceWidth, setDeviceWidth] = useState(window.innerWidth);
   const [downPayment, setDownPayment] = useState("20");
-  const [interestRate, setInterestRate] = useState("7.325");
+  const [interestRate, setInterestRate] = useState("6.75");
   const [price, setPrice] = useState("400000");
   const [propertyTax, setPropertyTax] = useState("4400");
   const [insurance, setInsurance] = useState("2000");
@@ -37,7 +37,6 @@ function App() {
   window.addEventListener("resize", function () {
     let currentDeviceWidth = window.innerWidth;
     setDeviceWidth(currentDeviceWidth);
-    console.log(currentDeviceWidth);
   });
   const amortization = (b) => {
     let balance = b;
